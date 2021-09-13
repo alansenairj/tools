@@ -256,6 +256,9 @@
           - batisteo.vscode-django
           - dart-code.dart-code
           - formulahendry.auto-close-tag
+          - humao.rest-client
+          - streetsidesoftware.code-spell-checker
+          
 
     - block:
       - name: Install snap packages
