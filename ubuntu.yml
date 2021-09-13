@@ -34,6 +34,21 @@
           - krita
           - jq
           - mtr
+          - snapd
+          - nload
+          - iptraf
+          - qbittorrent
+          - git-flow
+          - gnome-tweak-tool
+          - fonts-hack-ttf
+          - silversearcher-ag
+          - gdebi
+          - traceroute
+          - openjdk-11-jdk
+          - rpm
+          - build-essential
+          - dpkg-dev
+          
 
     - block:
       - name: Verify if Oh-My-zsh is installed
@@ -206,13 +221,65 @@
         shell:
           cmd: code --install-extension '{{ item }}' 
         loop: 
-          - ms-python.python
-          - ms-azuretools.vscode-docker
+
+          - redhat.vscode-yaml
+          - visualstudioexptteam.vscodeintellicode
+          - marcostazi.vs-code-vagrantfile
           - bbenoist.vagrant
+          - run-at-scale.terraform-doc-snippets
+          - ms-vscode-remote.remote-wsl
+          - ms-vscode-remote.remote-ssh-edit
+          - ms-vscode-remote.remote-ssh
+          - ms-vscode-remote.remote-containers
+          - donjayamanne.python-extension-pack
+          - ms-python.python
+          - ms-python.vscode-pylance
+          - alefragnani.project-manager
+          - ms-ceintl.vscode-language-pack-pt-br
+          - ziyasal.vscode-open-in-github
+          - sdras.night-owl
+          - magicstack.magicpython
+          - ms-toolsai.jupyter-keymap
+          - ms-toolsai.jupyter
+          - wholroyd.jinja
           - hashicorp.terraform
-          - gruntfuggly.todo-tree
-          - njpwerner.autodocstring
           - eamodio.gitlens
+          - codezombiech.gitignore
+          - github.remotehub
+          - github.vscode-pull-request-github
+          - github.copilot
+          - donjayamanne.githistory
+          - donjayamanne.git-extension-pack
+          - dzhavat.git-cheatsheet
+          - p1c2u.docker-compose
+          - ms-azuretools.vscode-docker
+          - batisteo.vscode-django
+          - dart-code.dart-code
+          - formulahendry.auto-close-tag
+
+    - block:
+      - name: Install snap packages
+        snap:
+          name:
+            - gtk-common-themes
+            - keepassxc
+            - ngrok
+            - nmap
+            - pomatez
+            - postman
+            - qt513
+            - spotify
+            - telegram-desktop
+            - whatsapp-for-linux
+
+      
+    - block: 
+      - name: Set Ibus keyboard layout to PT-BR
+        become: true
+        shell:
+          cmd: 'ibus engine xkb:br::por'
+
+
 
     - block: 
       - name: Install Docker Key
